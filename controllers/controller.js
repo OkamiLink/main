@@ -1,8 +1,9 @@
 const db = require('../models/db.js');
-const Howl = require('../models/HowlModel.js');
+const {Echo} = require('../models/HowlModel.js');
+const {Howl} = require('../models/HowlModel.js');
 const {Profile} = require('../models/OkamiModel.js');
 const {Okami} = require('../models/OkamiModel.js');
-const { render } = require('../routes/routes.js');
+const {render} = require('../routes/routes.js');
 
 const controller = {
 
