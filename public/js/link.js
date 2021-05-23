@@ -35,28 +35,28 @@ $(document).ready(function () {
     }
   });
 
-
-  $('#login').click(function () {
+  $('#login').click(function (e) {
+    e.preventDefault();
     var email = $('#email-sign-in');
     var password = $('#password-sign-in');
 
-    $.post("/signin", {email: email.val()}, function(result) {
-        if(result.refno == $('#refno').val()) {
-            $('#refno').css("background-color", "#FF0000");
-            $('#error').text("Reference number already in the database");
-            $('#submit').prop('disabled', false);
+    $.post("/signin", 
+    {
+        email: email.val(), 
+        password: password.val()
+    }, function(result) {
+        console.log(result.email + email.val() + result.password + password.val());
+
+        if(result.email == email.val() && result.password == password.val()) {
+            window.location = '/';
         }
-        else {
-            $('#refno').css("background-color", "#E3E3E3");
-            $('#error').text("");
-            $('#submit').removeAttr("disabled");
-        }
+        else
+            alert('wrong');
     });
 
-    
   })
 
-
+  
 });
 
   

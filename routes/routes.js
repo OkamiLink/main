@@ -11,6 +11,7 @@ app.get(`/howl`, controller.getHowl);
 
 // post functions
 app.post(`/signup`, controller.postSignUp);
-app.post(`/siginin`, controller.postSignIn);
+app.post(`/signin`, controller.postSignIn);
+app.post(`/link`, controller.postLink);
 
 module.exports = app;

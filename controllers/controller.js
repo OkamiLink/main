@@ -2,6 +2,7 @@ const db = require('../models/db.js');
 const Howl = require('../models/HowlModel.js');
 const {Profile} = require('../models/OkamiModel.js');
 const {Okami} = require('../models/OkamiModel.js');
+const { render } = require('../routes/routes.js');
 
 const controller = {
 
@@ -24,6 +25,8 @@ const controller = {
      * @param {*} res 
      */
     getProfile: function(req, res) {
+        console.log('yow');
+
         res.render('profile', {
             name: 'tantu',
             bio: 'uhm',
@@ -39,6 +42,10 @@ const controller = {
      * @param {*} res 
      */
     getLink: function(req, res) {
+        res.render('link', {});
+    },
+
+    postLink: function(req, res) {
         res.render('link', {});
     },
 
@@ -62,19 +69,10 @@ const controller = {
      */
     postSignIn: function(req, res) {
         var email = req.body.email;
-        var password =  req.body.passowrd;
-        Okami.findOne({email: email, password: password}, function(err, result) {
-            if(err)
-                console.log(err);
-            else {
-                res.render('profile', {
-                    okamid: result.okamid,
-                    name: result.name,
-                    email: result.email,
-                    password: result.passowrd,
-                    profile: ProfileSchema,
-                })
-            }
+        var password =  req.body.password;
+
+        Okami.findOne({email: email, password: password}, (err, result)=> {
+            res.send(result);
         });
     },
 
