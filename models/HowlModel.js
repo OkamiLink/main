@@ -43,4 +43,10 @@ var HowlSchema = new mongoose.Schema({
     comments: [EchoSchema] 
 });
 
-module.exports = mongoose.model('Howl', HowlSchema);
+const Echo = mongoose.model('Echo', EchoSchema);
+const Howl = mongoose.model('Howl', HowlSchema);
+
+module.exports = {
+    Echo: Echo,
+    Howl: Howl
+}
