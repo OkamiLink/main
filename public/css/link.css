@@ -374,6 +374,10 @@ form.sign-in-form {
     top: 5%;
     transform: translate(-50%, 0);
   }
+
+  #cubs {
+    width: 50%;
+  }
 }
 
 @media (max-width: 570px) {
@@ -384,6 +388,7 @@ form.sign-in-form {
   .image {
     display: none;
   }
+
   .panel .content {
     padding: 0.5rem 1rem;
   }
