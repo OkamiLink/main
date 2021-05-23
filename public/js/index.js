@@ -26,7 +26,7 @@ $(document).ready(function () {
         var firstname = $('#firstname');
         var lastname = $('#lastname');
         var email = $('#email');
-        var password = $('#email');
+        var password = $('#password');
         var id;
         var err = false;
 
