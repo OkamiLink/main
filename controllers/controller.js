@@ -78,14 +78,14 @@ const controller = {
             });
 
             var okami = new Okami({
-            okamid: okamid,
-            name: {
-                first: firstname,
-                last: lastname
-            },
-            email: email,
-            password: password,
-            profile: profile
+                okamid: okamid,
+                name: {
+                    first: firstname,
+                    last: lastname
+                },
+                email: email,
+                password: password,
+                profile: profile
             });
 
             okami.save();

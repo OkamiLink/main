@@ -9,11 +9,13 @@ var mongoose = require('mongoose');
  * @property about: brief background of the user.
  * @property bio: motto of the user.
  * @property followers: the amount of followers the user has.
+ * @property games: array of the game titles the user has played.
  */
 var ProfileSchema = new mongoose.Schema({
     about: String,
     bio: String,
     followers: Number,
+    games: [{type: String, default: null}]
 });
 
 /**
