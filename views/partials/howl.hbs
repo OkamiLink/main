@@ -1,0 +1,26 @@
+<li class="timeline-item">
+    <div class="card card-white grid-margin">
+        <div class="card-body">
+            <div class="timeline-item-header">
+                <img src="../global_src/Lobo.png" alt="" />
+                <p> {{name}} <span>howled</span></p>
+                <small>{{time}}</small>
+            </div>
+            <div class="timeline-item-post">
+                <p>
+                    {{text}}
+                </p>
+                <div class="timeline-options">
+                    <a href="#"><i class="fa fa-thumbs-up"></i> Like ({{likes}})</a>
+                    <a href="#"><i class="fa fa-comment"></i> Comment ({{comments}})</a>
+                </div>
+
+                <div class="echos">
+                    {{!-- Load Echo Partials --}}
+                </div>
+                
+                <textarea class="form-control" placeholder="Echo"></textarea>
+            </div>
+        </div>
+    </div>
+</li>
