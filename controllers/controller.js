@@ -43,6 +43,17 @@ const controller = {
     },
 
     /**
+     * getHowl.
+     * 
+     * adds a howl to the database.
+     * @param {*} req 
+     * @param {*} res 
+     */
+    getHowl: function(req, res) {
+
+    },
+
+    /**
      * postLogIn.
      * 
      * renders the log in page.

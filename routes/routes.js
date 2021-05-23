@@ -7,6 +7,7 @@ const app = express();
 app.get(`/`, controller.getIndex);
 app.get(`/profile`, controller.getProfile);
 app.get(`/signuppage`, controller.getSignUp);
+app.get(`/howl`, controller.getHowl);
 
 // post functions
 app.post(`/signup`, controller.postSignUp);
