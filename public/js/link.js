@@ -5,6 +5,22 @@ $(document).ready(function () {
      *
      *
      */
+    $('#email').keyup(function () {
+        $.get("/getCheckEmail", {email: $('#email').val()}, function(result) {
+
+            if(result.email == $('#email').val()) {
+                $('#email-validation').css("background-color", "#FF0000");
+                $('#error-message').text("The provided email is already registered.");
+                $('#signup').prop('disabled', false);
+            }
+            else {
+                $('#email-validation').css("background-color", "white");    
+                $('#error-message').text("");
+                $('#signup').removeAttr("disabled");
+            }
+        });
+    });
+
    $('#signup').click(function () {
     var firstname = $('#firstname');
     var lastname = $('#lastname');

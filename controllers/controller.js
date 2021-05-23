@@ -7,6 +7,14 @@ const {render} = require('../routes/routes.js');
 
 const controller = {
 
+    getCheckEmail: function(req, res) {
+        email = req.query.email;
+
+        Okami.findOne({email: email}, (err, result)=>{
+            res.send(result);
+        });
+    },
+
     /**
      * getIndex.
      * 

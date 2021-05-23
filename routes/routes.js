@@ -8,6 +8,7 @@ app.get(`/`, controller.getIndex);
 app.get(`/profile`, controller.getProfile);
 app.get(`/link`, controller.getLink);
 app.get(`/howl`, controller.getHowl);
+app.get(`/getCheckEmail`, controller.getCheckEmail);
 
 // post functions
 app.post(`/signup`, controller.postSignUp);
