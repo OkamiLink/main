@@ -61,7 +61,21 @@ const controller = {
      * @param {*} res 
      */
     postSignIn: function(req, res) {
-
+        var email = req.body.email;
+        var password =  req.body.passowrd;
+        Okami.findOne({email: email, password: password}, function(err, result) {
+            if(err)
+                console.log(err);
+            else {
+                res.render('profile', {
+                    okamid: result.okamid,
+                    name: result.name,
+                    email: result.email,
+                    password: result.passowrd,
+                    profile: ProfileSchema,
+                })
+            }
+        });
     },
 
     /**
