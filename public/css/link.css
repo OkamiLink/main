@@ -20,6 +20,10 @@ body {
   background: linear-gradient(#2b1055, #7597de);
 }
 
+#error-message {
+  color : white;
+}
+
 .container {
   position: relative;
   width: 100%;

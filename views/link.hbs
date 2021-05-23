@@ -30,6 +30,7 @@
 
           <form class="sign-up-form" id="signupform" method="POST">
             <h2 class="title">Sign up</h2>
+            <p id="error-message"></p>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="text" name="firstname" id="firstname" class="field" placeholder="First Name" />
@@ -38,7 +39,7 @@
               <i class="fas fa-user"></i>
               <input type="text" name="lastname" id="lastname" class="field" placeholder="Last Name" />
             </div>
-            <div class="input-field">
+            <div class="input-field" id="email-validation">
               <i class="fas fa-envelope"></i>
               <input type="email" name="email" id="email" class="field" placeholder="Email" />
             </div>
