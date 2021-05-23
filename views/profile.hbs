@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="/css/profile.css">
         <link rel="icon" href="../global_src/favicon.ico" type="image/x-icon">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/profile.js"></script>
     </head>
     <body>
         {{!-- Navbar --}}
@@ -56,7 +58,7 @@
                                 <div class="post">
                                     <textarea id="post-howl" class="form-control" placeholder="Howl" rows="4"></textarea>
                                     <div class="post-options">
-                                        <button class="btn btn-outline-primary float-right">Howl</button>
+                                        <button id="submit-howl" class="btn btn-outline-primary float-right">Howl</button>
                                     </div>
                                 </div>
                             </div>
@@ -66,6 +68,9 @@
                         <div class="profile-timeline">
                             <ul class="list-unstyled timeline_list">
                                 {{!-- Load Howls and Echos --}}
+                                {{#each result}}
+                                    {{> howl }}
+                                {{/each}}
                             </ul>
                         </div>
                     </div>
@@ -89,6 +94,6 @@
 
         </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
     </body>
 </html>
