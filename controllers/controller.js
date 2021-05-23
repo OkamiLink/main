@@ -25,12 +25,14 @@ const controller = {
      * @param {*} res 
      */
     getProfile: function(req, res) {
-        console.log('yow');
+        const sess = req.session;
+
+        console.log(sess.okami.email);
 
         res.render('profile', {
-            name: req.session.okami.name.first,
-            bio: req.session.okami.profile.bio,
-            about: req.session.okami.profile.about
+            name: sess.okami.name.first,
+            bio: sess.okami.profile.bio,
+            about: sess.okami.profile.about
         });
     },
 
@@ -68,11 +70,12 @@ const controller = {
      * @param {*} res 
      */
     postSignIn: function(req, res) {
+        const sess = req.session;
         var email = req.body.email;
         var password =  req.body.password;
 
         Okami.findOne({email: email, password: password}, (err, result)=> {
-            req.session.okami = result;
+            sess.okami = result;
             console.log(req.session.okami.email);
             res.send(result);
         });

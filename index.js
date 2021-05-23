@@ -22,13 +22,13 @@ redisClient.on('connect', function (err) {
 app.use(
     session({
         store: new RedisStore({ client: redisClient ,ttl: 86400}),  
-        secret: ['veryimportantsecret','notsoimportantsecret','highlyprobablysecret'], 
+        secret: 'secret', 
         resave: false,
         saveUninitialized: true,
         name: "secretname", 
         cookie: {
             httpOnly: true,
-            secure: true,
+            secure: false,
             sameSite: true,
             maxAge: 600000 // Time is in miliseconds
         }

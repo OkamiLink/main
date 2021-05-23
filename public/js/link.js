@@ -48,7 +48,8 @@ $(document).ready(function () {
         console.log(result.email + email.val() + result.password + password.val());
 
         if(result.email == email.val() && result.password == password.val()) {
-            window.location = '/';
+            window.location = '/profile';
+            done();
         }
         else
             alert('wrong');
