@@ -32,14 +32,14 @@ const controller = {
     },
 
     /**
-     * getSignUp.
+     * getLink.
      * 
-     * renders the sign up page.
+     * renders the sign up and sign in page.
      * @param {*} req 
      * @param {*} res 
      */
-    getSignUp: function(req, res) {
-        res.render('signup', {});
+    getLink: function(req, res) {
+        res.render('link', {});
     },
 
     /**
@@ -60,7 +60,7 @@ const controller = {
      * @param {*} req 
      * @param {*} res 
      */
-    postLogIn: function(req, res) {
+    postSignIn: function(req, res) {
 
     },
 

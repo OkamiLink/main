@@ -6,10 +6,11 @@ const app = express();
 // get functions
 app.get(`/`, controller.getIndex);
 app.get(`/profile`, controller.getProfile);
-app.get(`/signuppage`, controller.getSignUp);
+app.get(`/link`, controller.getLink);
 app.get(`/howl`, controller.getHowl);
 
 // post functions
 app.post(`/signup`, controller.postSignUp);
+app.post(`/siginin`, controller.postSignIn);
 
 module.exports = app;
