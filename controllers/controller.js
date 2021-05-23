@@ -28,9 +28,9 @@ const controller = {
         console.log('yow');
 
         res.render('profile', {
-            name: 'tantu',
-            bio: 'uhm',
-            about: 'just a gamer'
+            name: req.session.okami.name.first,
+            bio: req.session.okami.profile.bio,
+            about: req.session.okami.profile.about
         });
     },
 
@@ -72,6 +72,8 @@ const controller = {
         var password =  req.body.password;
 
         Okami.findOne({email: email, password: password}, (err, result)=> {
+            req.session.okami = result;
+            console.log(req.session.okami.email);
             res.send(result);
         });
     },
