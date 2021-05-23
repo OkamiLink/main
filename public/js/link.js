@@ -11,7 +11,7 @@ $(document).ready(function () {
             if(result.email == $('#email').val()) {
                 $('#email-validation').css("background-color", "#FF0000");
                 $('#error-message').text("The provided email is already registered.");
-                $('#signup').prop('disabled', false);
+                $('#signup').prop('disabled', true);
             }
             else {
                 $('#email-validation').css("background-color", "white");    

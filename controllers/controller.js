@@ -68,7 +68,9 @@ const controller = {
      * @param {*} res 
      */
     getHowl: function(req, res) {
-
+        console.log('howlllll');
+        var howl = req.query.howl;
+        console.log(howl);
     },
 
     /**

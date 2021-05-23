@@ -56,10 +56,12 @@
                         <div class="card card-white grid-margin">
                             <div class="card-body">
                                 <div class="post">
-                                    <textarea id="post-howl" class="form-control" placeholder="Howl" rows="4"></textarea>
-                                    <div class="post-options">
-                                        <button id="submit-howl" class="btn btn-outline-primary float-right">Howl</button>
-                                    </div>
+                                    <form id="howl-form" method="GET">
+                                        <input id="post-howl" class="form-control" placeholder="Howl" rows="4"></input>
+                                        <div class="post-options">
+                                            <input type="submit" id="submit-howl" class="btn btn-outline-primary float-right" value="Howl"></input>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
