@@ -26,7 +26,7 @@
                             </div>
                             <div class="card-body user-profile-card mb-3">
                                 <img src="/images/Lobo.png" class="user-profile-image rounded-circle" alt="" />
-                                <h4 class="text-center h6 mt-2">{{name}}</h4>
+                                <h4 class="text-center h6 mt-2">{{name.first}} {{name.last}}</h4>
                                 <p class="text-center small">{{bio}}</p>
                                 <button class="btn btn-theme btn-sm">Follow</button>
                             </div>
@@ -70,7 +70,7 @@
                         <div class="profile-timeline">
                             <ul class="list-unstyled timeline_list">
                                 {{!-- Load Howls and Echos --}}
-                                {{#each result}}
+                                {{#each howls}}
                                     {{> howl }}
                                 {{/each}}
                             </ul>
