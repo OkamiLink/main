@@ -35,7 +35,6 @@ const controller = {
      */
     getProfile: function(req, res) {
         const sess = req.session;
-        console.log(sess.okami.email);
 
         Howl.find({id:sess.okami.okamid}, (err, result) => {
             res.render('profile', {

@@ -5,6 +5,7 @@ $(document).ready(function () {
         var howl = $("#post-howl");
 
         $.get('/howl', {howl:howl.val()},function(data, status) {});
+        $('body').load('/profile');
     });
 
 })
