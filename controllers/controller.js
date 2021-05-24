@@ -47,6 +47,20 @@ const controller = {
         
     },
 
+    getHome: function(req, res) {
+        const sess = req.session;
+
+        Howl.find({}, (err, result) => {
+            res.render('home', {
+                name: sess.okami.name,
+                bio: sess.okami.profile.bio,
+                about: sess.okami.profile.about,
+                howls: result
+            });
+        });
+        
+    },
+
     /**
      * getLink.
      * 

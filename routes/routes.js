@@ -5,6 +5,7 @@ const app = express();
 
 // get functions
 app.get(`/`, controller.getIndex);
+app.get(`/home`, controller.getHome);
 app.get(`/profile`, controller.getProfile);
 app.get(`/link`, controller.getLink);
 app.get(`/howl`, controller.getHowl);
