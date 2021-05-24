@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+    
     /**
      * Sign Up Button.
      *
@@ -68,7 +69,7 @@ $(document).ready(function () {
             done();
         }
         else
-            alert('wrong');
+            $('#error-message-sign-in').text("Invalid Credentials.");
     });
 
   })

@@ -16,5 +16,4 @@ $(document).ready(function () {
         mountains_front.style.top = value * 0 + 'px';
         header.style.top = value * 0.5 + 'px';
     });
-
 })
