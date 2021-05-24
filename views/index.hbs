@@ -23,13 +23,15 @@
         <img src="/images/moon.png" id="moon">
         <img src="/images/mountains_behind.png" id="mountains_behind">
 
-        <h2 id="text" class="main-text"></h2>
+        <div class="container">
+            <h2 id="text"></h2><span class="cursor">&nbsp;</span>
+        </div>
 
         <a href="/link" id="main_btn">Join the Pack</a>
         <img src="/images/mountains_front.png" id="mountains_front">
     </section>
     <div class="about">
-        <h2>ENGAGE. ESTABLISH.</h2>
+        <h2>HEAR. HOWL. HUNT.</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a lorem vitae augue aliquet elementum at eget lacus.
             Sed sed erat venenatis, vehicula nisi et, rhoncus neque. Nulla eu enim ac mauris tincidunt consectetur vel sagittis nisi.
             Fusce nibh tortor, eleifend nec enim ac, elementum convallis nulla. Etiam pellentesque, purus in blandit sollicitudin,
@@ -47,22 +49,5 @@
             lacinia consectetur ex convallis quis.<br><br>
         </p>
     </div>
-
-
-    <script>
-        var i = 0;
-        var index = 0;
-        var text = ["Hear.", "Howl.", "Hunt."];
-
-        const h2 = document.querySelector('.main-text');
-
-        (function typing () {
-            if (i < text[index].length) {
-                h2.textContent += text[index].charAt(i);
-                i++;
-                setTimeout(typing, 160);
-            }
-        })();
-    </script>
 </body>
 </html>

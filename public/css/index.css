@@ -108,12 +108,10 @@ section img#mountains_front {
 /* All IDs */
 
 #text {
-    position: absolute;
     color: white;
     text-transform: uppercase;
     white-space: nowrap;
     font-size: 5vw;
-    z-index: 10;
     font-family: 'Dela Gothic One', cursive;
     line-height: 0.9;
 }
@@ -131,6 +129,7 @@ section img#mountains_front {
     text-transform: uppercase;
     font-weight: 800;
     font-family: 'Dela Gothic One', cursive;
+    margin-bottom: 180px;
 }
 
 /* All individual classes */
@@ -150,4 +149,34 @@ section img#mountains_front {
 .about p {
     font-size: 1.2em;
     color: white;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 10;
+    position: absolute;
+}
+
+.container h2 span.cursor {
+    display: inline-block;
+    background-color: #ccc;
+    margin-left: 0.1rem;
+    width: 3px;
+    animation: blink 1s infinite;
+}
+
+.container h2 span.cursor.typing {
+    animation: none;
+}
+
+@keyframes blink {
+    0%  { background-color: #ccc; }
+    49% { background-color: #ccc; }
+    50% { background-color: transparent; }
+    99% { background-color: transparent; }
+    100%  { background-color: #ccc; }
 }
