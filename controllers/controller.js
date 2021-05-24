@@ -56,6 +56,13 @@ const controller = {
         res.render('link', {});
     },
 
+    /**
+     * postLink.
+     * 
+     * renders the sign up and sign in page.
+     * @param {*} req 
+     * @param {*} res 
+     */
     postLink: function(req, res) {
         res.render('link', {});
     },
@@ -68,9 +75,19 @@ const controller = {
      * @param {*} res 
      */
     getHowl: function(req, res) {
-        console.log('howlllll');
-        var howl = req.query.howl;
-        console.log(howl);
+        const sess = req.session;
+        var howlText = req.query.howl;
+        var hour = new Date();
+
+        var howl = new Howl({
+            id: sess.okami.okamid,
+            name: sess.okami.name,
+            text: howlText,
+            time: 0 // temp value
+        });
+
+        howl.save();
+        res.send(howl);
     },
 
     /**
@@ -87,7 +104,6 @@ const controller = {
 
         Okami.findOne({email: email, password: password}, (err, result)=> {
             sess.okami = result;
-            console.log(req.session.okami.email);
             res.send(result);
         });
     },

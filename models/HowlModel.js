@@ -40,7 +40,7 @@ var HowlSchema = new mongoose.Schema({
     },
     text: String,
     time: Number,
-    comments: [EchoSchema] 
+    comments: [{type: EchoSchema, default: null}] 
 });
 
 const Echo = mongoose.model('Echo', EchoSchema);
