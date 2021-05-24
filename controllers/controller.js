@@ -73,17 +73,6 @@ const controller = {
     },
 
     /**
-     * postLink.
-     * 
-     * renders the sign up and sign in page.
-     * @param {*} req 
-     * @param {*} res 
-     */
-    postLink: function(req, res) {
-        res.render('link', {});
-    },
-
-    /**
      * getHowl.
      * 
      * adds a howl to the database.
@@ -104,6 +93,22 @@ const controller = {
 
         howl.save();
         res.send(howl);
+    },
+
+    getLogOut: function(req,res) {
+        req.session.destroy();
+        res.render('index');
+    },
+
+    /**
+     * postLink.
+     * 
+     * renders the sign up and sign in page.
+     * @param {*} req 
+     * @param {*} res 
+     */
+    postLink: function(req, res) {
+        res.render('link', {});
     },
 
     /**
