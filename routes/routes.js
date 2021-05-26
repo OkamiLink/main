@@ -9,6 +9,7 @@ app.get(`/home`, controller.getHome);
 app.get(`/profile`, controller.getProfile);
 app.get(`/link`, controller.getLink);
 app.get(`/howl`, controller.getHowl);
+app.get(`/echo`, controller.getEcho);
 app.get(`/getCheckEmail`, controller.getCheckEmail);
 app.get(`/logout`, controller.getLogOut);
 

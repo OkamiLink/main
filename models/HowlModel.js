@@ -12,7 +12,7 @@ var mongoose = require('mongoose');
  * @property time: time posted.
  */
 var EchoSchema = new mongoose.Schema({
-    id: String,
+    okamid: String,
     name: {
         first: {type: String, required: true},
         last: {type: String, trim: true, required: true},
@@ -33,7 +33,8 @@ var EchoSchema = new mongoose.Schema({
  * @property comments: array of Echos.
  */
 var HowlSchema = new mongoose.Schema({
-    id: String,
+    howlid: Number,
+    okamid: String,
     name: {
         first: {type: String, required: true},
         last: {type: String, trim: true, required: true},

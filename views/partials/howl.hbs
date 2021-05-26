@@ -11,15 +11,21 @@
                     {{text}}
                 </p>
                 <div class="timeline-options">
-                    <a href="#"><i class="fa fa-thumbs-up"></i> Like ({{likes}})</a>
-                    <a href="#"><i class="fa fa-comment"></i> Comment ({{comments}})</a>
+                    <a href="#"><i class="fa fa-thumbs-up"></i> Like </a>
+                    <a href="#"><i class="fa fa-comment"></i> Comment </a>
                 </div>
 
                 <div class="echos">
-                    {{!-- Load Echo Partials --}}
+                    {{#each comments}}
+                        {{> echo }}
+                    {{/each}}
                 </div>
                 
-                <textarea class="form-control" placeholder="Echo"></textarea>
+                <form id="echo-form{{@index}}" class="echo-form" method="GET">
+                    <textarea form="echo-form{{@index}}" name="echo" class="form-control post-echo" placeholder="Echo"></textarea>
+                    <input type="hidden" class="form-control hidden-howlid" name="howlid" value="{{howlid}}">
+                    <input type="submit" class="btn btn-outline-primary float-right submit-echo" value="Echo"></input>
+                </form>
             </div>
         </div>
     </div>

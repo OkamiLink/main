@@ -210,3 +210,7 @@ body {
     vertical-align: baseline;
     border-radius: 0.25em;
 }
+
+#submit-echo {
+    margin-top: 1rem;
+}

@@ -36,7 +36,7 @@ const controller = {
     getProfile: function(req, res) {
         const sess = req.session;
 
-        Howl.find({id:sess.okami.okamid}, (err, result) => {
+        Howl.find({okamid:sess.okami.okamid}, (err, result) => {
             res.render('profile', {
                 name: sess.okami.name,
                 bio: sess.okami.profile.bio,
@@ -84,15 +84,39 @@ const controller = {
         var howlText = req.query.howl;
         var hour = new Date();
 
-        var howl = new Howl({
-            id: sess.okami.okamid,
+        Howl.countDocuments({}, function(err, count) {
+            var howl = new Howl({
+                howlid: count + 1,
+                okamid: sess.okami.okamid,
+                name: sess.okami.name,
+                text: howlText,
+                time: 0 // temp value
+            });
+    
+            howl.save();
+            res.send(howl);
+        })
+    },
+
+    getEcho: function(req, res) {
+        const sess = req.session;
+        var echoText = req.query.echo;
+        var howlid = req.query.howlid;
+        var hour = new Date();
+
+        var echo = new Echo({
+            okamid: sess.okami.okamid,
             name: sess.okami.name,
-            text: howlText,
+            text: echoText,
             time: 0 // temp value
         });
 
-        howl.save();
-        res.send(howl);
+        Howl.findOneAndUpdate({howlid: howlid}, 
+            {$push: {comments: echo}}, function (error, success) {
+                 if (error)
+                     console.log(error);
+            });
+        
     },
 
     getLogOut: function(req,res) {
