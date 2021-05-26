@@ -8,4 +8,13 @@ $(document).ready(function () {
         $('body').load('/profile');
     });
 
+    $('.submit-echo').click(function () {
+        var formid = this.form.id;
+        var form = document.getElementById(formid);
+        var howlid = form.elements['howlid'];
+        var echo = form.elements['echo'];
+        
+        $.get('/echo', {echo:echo.value, howlid:howlid.value},function(data, status) {});
+        $('body').load('/profile');
+    });
 })

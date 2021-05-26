@@ -9,6 +9,7 @@ const url = 'mongodb://localhost:27017/OkamiTestDB';
 const options = {
     useUnifiedTopology: true,
     useNewUrlParser: true,
+    useFindAndModify: false
 };
 
 const database = {
