@@ -4,7 +4,7 @@ $(document).ready(function () {
         var howl = $("#post-howl");
 
         $.get('/howl', {howl:howl.val()},function(data, status) {});
-        $('body').load('/profile');
+        window.location = '/profile';
     });
 
     $('.submit-echo').click(function () {
@@ -14,6 +14,6 @@ $(document).ready(function () {
         var echo = form.elements['echo'];
         
         $.get('/echo', {echo:echo.value, howlid:howlid.value},function(data, status) {});
-        $('body').load('/profile');
+        window.location = '/profile';
     });
 })

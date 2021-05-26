@@ -18,7 +18,7 @@ var EchoSchema = new mongoose.Schema({
         last: {type: String, trim: true, required: true},
     },
     text: String,
-    time: Number,
+    time: String,
 })
 
 /**
@@ -40,7 +40,7 @@ var HowlSchema = new mongoose.Schema({
         last: {type: String, trim: true, required: true},
     },
     text: String,
-    time: Number,
+    time: String,
     comments: [{type: EchoSchema, default: null}] 
 });
 

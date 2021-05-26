@@ -82,7 +82,8 @@ const controller = {
     getHowl: function(req, res) {
         const sess = req.session;
         var howlText = req.query.howl;
-        var hour = new Date();
+        var date = new Date();
+        var time = date.toLocaleDateString("en-US", {month: 'long', day: 'numeric', year: 'numeric'});
 
         Howl.countDocuments({}, function(err, count) {
             var howl = new Howl({
@@ -90,7 +91,7 @@ const controller = {
                 okamid: sess.okami.okamid,
                 name: sess.okami.name,
                 text: howlText,
-                time: 0 // temp value
+                time: time
             });
     
             howl.save();
@@ -102,13 +103,14 @@ const controller = {
         const sess = req.session;
         var echoText = req.query.echo;
         var howlid = req.query.howlid;
-        var hour = new Date();
+        var date = new Date();
+        var time = date.toLocaleDateString("en-US", {month: 'long', day: 'numeric', year: 'numeric'});
 
         var echo = new Echo({
             okamid: sess.okami.okamid,
             name: sess.okami.name,
             text: echoText,
-            time: 0 // temp value
+            time: time
         });
 
         Howl.findOneAndUpdate({howlid: howlid}, 
