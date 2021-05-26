@@ -36,7 +36,7 @@ const controller = {
     getProfile: function(req, res) {
         const sess = req.session;
 
-        Howl.find({okamid:sess.okami.okamid}, (err, result) => {
+        Howl.find({okamid:sess.okami.okamid}).sort({howlid: -1}).exec((err, result) => {
             res.render('profile', {
                 name: sess.okami.name,
                 bio: sess.okami.profile.bio,
@@ -50,8 +50,8 @@ const controller = {
     getHome: function(req, res) {
         const sess = req.session;
 
-        Howl.find({}, (err, result) => {
-            res.render('home', {
+        Howl.find({}).sort({howlid: -1}).exec((err, result) => {
+            res.render('profile', {
                 name: sess.okami.name,
                 bio: sess.okami.profile.bio,
                 about: sess.okami.profile.about,

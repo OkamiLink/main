@@ -211,6 +211,6 @@ body {
     border-radius: 0.25em;
 }
 
-#submit-echo {
-    margin-top: 1rem;
+.submit-echo {
+    margin-top: 0.7rem;
 }
