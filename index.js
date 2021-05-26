@@ -2,38 +2,11 @@ const dotenv = require(`dotenv`);
 const express = require(`express`);
 const hbs = require(`hbs`);
 const bodyParser = require(`body-parser`);
-const redis = require('redis');
 const session = require('express-session');
 const routes = require(`./routes/routes.js`);
 const db = require(`./models/db.js`);
-
+const MongoStore = require('connect-mongo');
 const app = express();
-
-let RedisStore = require('connect-redis')(session);
-let redisClient = redis.createClient();
-
-redisClient.on('error', function (err) {
-    console.log('Could not establish a connection with redis. ' + err);
-});
-redisClient.on('connect', function (err) {
-    console.log('Connected to redis successfully');
-});
-
-app.use(
-    session({
-        store: new RedisStore({ client: redisClient ,ttl: 86400}),  
-        secret: 'secret', 
-        resave: false,
-        saveUninitialized: true,
-        name: "secretname", 
-        cookie: {
-            httpOnly: true,
-            secure: false,
-            sameSite: true,
-            maxAge: 600000 // Time is in miliseconds
-        }
-    })
-);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -43,11 +16,23 @@ hbs.registerPartials(__dirname + `/views/partials`);
 dotenv.config();
 port = process.env.PORT;
 hostname = process.env.HOSTNAME;
+url = process.env.DB_URL;
+secret = process.env.SECRET;
 
 app.use(express.static(`public`));
-app.use(`/`, routes);
 
 db.connect();
+
+app.use(session({
+	resave: false,
+	saveUninitialized: false,
+	secret: secret,
+	store: MongoStore.create({
+		mongoUrl: url
+	})
+}));
+
+app.use(`/`, routes);
 
 app.listen(port, hostname, function () {
     console.log(`Server is running at:`);

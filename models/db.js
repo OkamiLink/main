@@ -1,10 +1,12 @@
 
 const mongoose = require('mongoose');
+const dotenv = require(`dotenv`);
 
 const OkamiModel = require('./OkamiModel.js');
 const HowlModel = require('./HowlModel.js');
 
-const url = 'mongodb://localhost:27017/OkamiTestDB';
+dotenv.config();
+const url = process.env.DB_URL;
 
 const options = {
     useUnifiedTopology: true,

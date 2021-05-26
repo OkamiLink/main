@@ -148,8 +148,14 @@ const controller = {
         var password =  req.body.password;
 
         Okami.findOne({email: email, password: password}, (err, result)=> {
-            sess.okami = result;
-            res.send(result);
+            console.log(result);
+            if(err) {
+                console.log(err);
+            }
+            else {
+                sess.okami = result;
+                res.send(result);
+            }
         });
     },
 
