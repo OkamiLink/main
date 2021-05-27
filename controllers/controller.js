@@ -33,18 +33,23 @@ const controller = {
      * @param {*} req 
      * @param {*} res 
      */
-    getProfile: function(req, res) {
+    getProfile: async (req, res) => {
         const sess = req.session;
+        let howls = [];
 
-        Howl.find({okamid:sess.okami.okamid}).sort({howlid: -1}).exec((err, result) => {
-            res.render('profile', {
-                name: sess.okami.name,
-                bio: sess.okami.profile.bio,
-                about: sess.okami.profile.about,
-                howls: result
-            });
+        await Howl.find({okamid:sess.okami.okamid}).sort({howlid: -1}).then(result => {
+            console.log('here');
+            howls = result;
+        }, error => {
+            console.log(error);
         });
-        
+
+        res.render('profile', {
+            name: sess.okami.name,
+            bio: sess.okami.profile.bio,
+            about: sess.okami.profile.about,
+            howls: howls
+        });
     },
 
     getHome: function(req, res) {
