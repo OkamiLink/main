@@ -38,7 +38,6 @@ const controller = {
         let howls = [];
 
         await Howl.find({okamid:sess.okami.okamid}).sort({howlid: -1}).then(result => {
-            console.log('here');
             howls = result;
         }, error => {
             console.log(error);
