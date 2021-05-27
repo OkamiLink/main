@@ -12,6 +12,8 @@ app.get(`/howl`, controller.getHowl);
 app.get(`/echo`, controller.getEcho);
 app.get(`/getCheckEmail`, controller.getCheckEmail);
 app.get(`/logout`, controller.getLogOut);
+app.get(`/updateabout`, controller.getUpdateAbout);
+app.get(`/updategames`, controller.getUpdateGames);
 
 // post functions
 app.post(`/signup`, controller.postSignUp);

@@ -33,18 +33,37 @@
                             <hr />
                             <div class="card-heading clearfix mt-3">
                                 <h4 class="card-title">About</h4>
+                                <button id="about-edit" class="btn btn-theme btn-sm">Edit</button>
                             </div>
                             <div class="card-body mb-3">
                                 <p class="mb-0">
                                     {{about}}
                                 </p>
                             </div>
+                            {{!-- TODO: abt form --}}
+                            <div id="about-form-container">
+                                <form id="about-form" method="GET">
+                                    <input type="text" id="about-input" name="about" class="float-left profile-edit" placeholder="{{about}}"></input>
+                                    <input type="submit" id="about-submit" class="btn btn-outline-primary save-btn" value="save"></input>
+                                </form>
+                            </div>
                             <hr />
                             <div class="card-heading clearfix mt-3">
                                 <h4 class="card-title">Games</h4>
+                                <button id="games-edit" class="btn btn-theme btn-sm">Edit</button>
                             </div>
                             <div class="card-body mb-3">
                                 {{!-- Load Games --}}
+                                {{#each game}}
+                                    {{> games }}
+                                {{/each}}
+                            </div>
+                            {{!-- TODO: game form--}}
+                            <div id="game-form-container">
+                                <form id="game-form" method="GET">
+                                    <input type="text" id="game-input" name="games" class="float-left profile-edit" placeholder="space"></input>
+                                    <input type="submit" id="game-submit" class="btn btn-outline-primary save-btn" value="save"></input>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -34,7 +34,7 @@ const controller = {
      * @param {*} res 
      */
     getProfile: async (req, res) => {
-        const sess = req.session;
+        let sess = req.session;
         let howls = [];
 
         await Howl.find({okamid:sess.okami.okamid}).sort({howlid: -1}).then(result => {
@@ -52,7 +52,7 @@ const controller = {
     },
 
     getHome: function(req, res) {
-        const sess = req.session;
+        let sess = req.session;
 
         Howl.find({}).sort({howlid: -1}).exec((err, result) => {
             res.render('profile', {
@@ -84,7 +84,7 @@ const controller = {
      * @param {*} res 
      */
     getHowl: function(req, res) {
-        const sess = req.session;
+        let sess = req.session;
         var howlText = req.query.howl;
         var date = new Date();
         var time = date.toLocaleDateString("en-US", {month: 'long', day: 'numeric', year: 'numeric'});
@@ -104,7 +104,7 @@ const controller = {
     },
 
     getEcho: function(req, res) {
-        const sess = req.session;
+        let sess = req.session;
         var echoText = req.query.echo;
         var howlid = req.query.howlid;
         var date = new Date();
@@ -119,10 +119,31 @@ const controller = {
 
         Howl.findOneAndUpdate({howlid: howlid}, 
             {$push: {comments: echo}}, function (error, success) {
-                 if (error)
-                     console.log(error);
+                if (error)
+                    console.log(error);
             });
-        
+    },
+
+    getUpdateAbout: function(req, res) {
+        let sess = req.session;
+        about = req.query.about;
+        sess.okami.profile.about = about;
+        sess.save();
+        profile = new Profile({
+            about: about,
+            bio: sess.okami.profile.bio,
+            followers: sess.okami.profile.followers,
+            games: sess.okami.profile.games
+        })
+
+        Okami.findOneAndUpdate({okamid: sess.okami.okamid}, {profile: profile}, function(err, succ){
+            if (err)
+                console.log(err);
+        });
+    },
+
+    getUpdateGames: function(req, res) {
+
     },
 
     getLogOut: function(req,res) {
@@ -142,7 +163,7 @@ const controller = {
     },
 
     /**
-     * postLogIn.
+     * postSignIn.
      * 
      * renders the log in page.
      * @param {*} req 
@@ -154,7 +175,6 @@ const controller = {
         var password =  req.body.password;
 
         Okami.findOne({email: email, password: password}, (err, result)=> {
-            console.log(result);
             if(err) {
                 console.log(err);
             }
