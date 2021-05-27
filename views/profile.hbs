@@ -28,7 +28,7 @@
                                 <img src="/images/Lobo.png" class="user-profile-image rounded-circle" alt="" />
                                 <h4 class="text-center h6 mt-2">{{name.first}} {{name.last}}</h4>
                                 <p class="text-center small">{{bio}}</p>
-                                <button class="btn btn-theme btn-sm">Follow</button>
+                                <button class="btn btn-theme btn-sm">Edit Bio</button>
                             </div>
                             <hr />
                             <div class="card-heading clearfix mt-3">
@@ -40,7 +40,6 @@
                                     {{about}}
                                 </p>
                             </div>
-                            {{!-- TODO: abt form --}}
                             <div id="about-form-container">
                                 <form id="about-form" method="GET">
                                     <input type="text" id="about-input" name="about" class="float-left profile-edit" placeholder="{{about}}"></input>
@@ -55,7 +54,7 @@
                             <div class="card-body mb-3">
                                 {{!-- Load Games --}}
                                 {{#each game}}
-                                    {{> games }}
+                                    <a href="#" class="label label-success mb-2">{{this}}</a>
                                 {{/each}}
                             </div>
                             {{!-- TODO: game form--}}

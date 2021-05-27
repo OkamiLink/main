@@ -34,7 +34,8 @@ $(document).ready(function () {
     $('#game-submit').click(function(){
         let games = $('#game-input');
         
-        $.get('/updategames', {games: games.val()});
+        $.get('/updategames', {games: games.val()}, function(data, status){});
+        window.location = '/profile';
     });
 
     // Toggle Functions

@@ -47,7 +47,8 @@ const controller = {
             name: sess.okami.name,
             bio: sess.okami.profile.bio,
             about: sess.okami.profile.about,
-            howls: howls
+            howls: howls,
+            game: sess.okami.profile.games
         });
     },
 
@@ -127,8 +128,10 @@ const controller = {
     getUpdateAbout: function(req, res) {
         let sess = req.session;
         about = req.query.about;
+
         sess.okami.profile.about = about;
         sess.save();
+        
         profile = new Profile({
             about: about,
             bio: sess.okami.profile.bio,
@@ -143,7 +146,24 @@ const controller = {
     },
 
     getUpdateGames: function(req, res) {
+        let sess = req.session;
+        gameQuery = req.query.games;
+        games = gameQuery.split(' ');
 
+        sess.okami.profile.games = games;
+        sess.save();
+
+        profile = new Profile({
+            about: sess.okami.profile.about,
+            bio: sess.okami.profile.bio,
+            followers: sess.okami.profile.followers,
+            games: games
+        })
+
+        Okami.findOneAndUpdate({okamid: sess.okami.okamid}, {profile: profile}, function(err, succ){
+            if (err)
+                console.log(err);
+        });
     },
 
     getLogOut: function(req,res) {
