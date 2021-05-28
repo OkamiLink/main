@@ -28,7 +28,6 @@
                                 <img src="/images/Lobo.png" class="user-profile-image rounded-circle" alt="" />
                                 <h4 class="text-center h6 mt-2">{{name.first}} {{name.last}}</h4>
                                 <p class="text-center small">{{bio}}</p>
-                                <button class="btn btn-theme btn-sm">Follow</button>
                             </div>
                             <hr />
                             <div class="card-heading clearfix mt-3">
@@ -44,7 +43,9 @@
                                 <h4 class="card-title">Games</h4>
                             </div>
                             <div class="card-body mb-3">
-                                {{!-- Load Games --}}
+                                {{#each game}}
+                                    <a href="#" class="label label-success mb-2">{{this}}</a>
+                                {{/each}}
                             </div>
                         </div>
                     </div>
@@ -81,7 +82,7 @@
                     <div class="col-lg-12 col-xl-3">
                         <div class="card card-white grid-margin">
                             <div class="card-heading clearfix">
-                                <h4 class="card-title">Other Okami Suggestions</h4>
+                                <h4 class="card-title">Resounding Howls</h4>
                             </div>
                             <div class="card-body">
                                 <div class="team">

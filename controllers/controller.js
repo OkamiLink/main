@@ -56,11 +56,12 @@ const controller = {
         let sess = req.session;
 
         Howl.find({}).sort({howlid: -1}).exec((err, result) => {
-            res.render('profile', {
+            res.render('home', {
                 name: sess.okami.name,
                 bio: sess.okami.profile.bio,
                 about: sess.okami.profile.about,
-                howls: result
+                howls: result,
+                game: sess.okami.profile.games
             });
         });
         
