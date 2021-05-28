@@ -1,9 +1,10 @@
 $(document).ready(function () {
     let aboutEdit = $('#about-form-container');
     let gameEdit = $('#game-form-container');
+    let bioEdit = $('#bio-form-container');
     gameEdit.toggle();
     aboutEdit.toggle();
-
+    bioEdit.toggle();
 
     // Howl and Echo Functions
     $('#submit-howl').click(function () {
@@ -38,6 +39,13 @@ $(document).ready(function () {
         window.location = '/profile';
     });
 
+    $('#bio-submit').click(function(){
+        let bio = $('#bio-input');
+        
+        $.get('/updatebio', {bio: bio.val()}, function(data, status){});
+        window.location = '/profile';
+    });
+
     // Toggle Functions
     $('#about-edit').click(function(){
         aboutEdit.toggle();
@@ -45,5 +53,9 @@ $(document).ready(function () {
 
     $('#games-edit').click(function(){
         gameEdit.toggle();
+    });
+
+    $('#bio-edit').click(function(){
+        bioEdit.toggle();
     });
 })

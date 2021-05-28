@@ -14,6 +14,7 @@ app.get(`/getCheckEmail`, controller.getCheckEmail);
 app.get(`/logout`, controller.getLogOut);
 app.get(`/updateabout`, controller.getUpdateAbout);
 app.get(`/updategames`, controller.getUpdateGames);
+app.get(`/updatebio`, controller.getUpdateBio);
 
 // post functions
 app.post(`/signup`, controller.postSignUp);

@@ -28,7 +28,13 @@
                                 <img src="/images/Lobo.png" class="user-profile-image rounded-circle" alt="" />
                                 <h4 class="text-center h6 mt-2">{{name.first}} {{name.last}}</h4>
                                 <p class="text-center small">{{bio}}</p>
-                                <button class="btn btn-theme btn-sm">Edit Bio</button>
+                                <button id="bio-edit" class="btn btn-theme btn-sm">Edit Bio</button>
+                            </div>
+                            <div id="bio-form-container">
+                                <form id="bio-form" method="GET">
+                                    <input type="text" id="bio-input" name="bio" class="float-left profile-edit" placeholder="{{bio}}"></input>
+                                    <input type="submit" id="bio-submit" class="btn btn-outline-primary save-btn" value="save"></input>
+                                </form>
                             </div>
                             <hr />
                             <div class="card-heading clearfix mt-3">

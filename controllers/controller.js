@@ -131,7 +131,7 @@ const controller = {
 
         sess.okami.profile.about = about;
         sess.save();
-        
+
         profile = new Profile({
             about: about,
             bio: sess.okami.profile.bio,
@@ -158,6 +158,26 @@ const controller = {
             bio: sess.okami.profile.bio,
             followers: sess.okami.profile.followers,
             games: games
+        })
+
+        Okami.findOneAndUpdate({okamid: sess.okami.okamid}, {profile: profile}, function(err, succ){
+            if (err)
+                console.log(err);
+        });
+    },
+
+    getUpdateBio: function(req, res) {
+        let sess = req.session;
+        bio = req.query.bio;
+
+        sess.okami.profile.bio = bio;
+        sess.save();
+
+        profile = new Profile({
+            about: sess.okami.profile.about,
+            bio: bio,
+            followers: sess.okami.profile.followers,
+            games: sess.okami.profile.games
         })
 
         Okami.findOneAndUpdate({okamid: sess.okami.okamid}, {profile: profile}, function(err, succ){
