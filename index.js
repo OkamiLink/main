@@ -16,7 +16,7 @@ hbs.registerPartials(__dirname + `/views/partials`);
 dotenv.config();
 port = process.env.PORT;
 hostname = process.env.HOSTNAME;
-url = process.env.DB_URL;
+url = process.env.DB_URI;
 secret = process.env.SECRET;
 
 app.use(express.static(`public`));

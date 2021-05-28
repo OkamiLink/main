@@ -6,7 +6,7 @@ const OkamiModel = require('./OkamiModel.js');
 const HowlModel = require('./HowlModel.js');
 
 dotenv.config();
-const url = process.env.DB_URL;
+const url = process.env.DB_URI;
 
 const options = {
     useUnifiedTopology: true,
